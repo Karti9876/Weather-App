@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins' , sans-serif;
+    box-sizing: content-box;
+    background-image: "wheather_image.jpeg";
+}
+
+.topic p{
+    font-size: 40px;
+    font-style: normal;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    text-align: center;
+    margin-top: 40px;
+
+}
+
+.card{
+    width: 90%;
+    max-width: 500px;
+    background: rgb(35, 193, 241);
+    color: white;
+    margin: 100px auto 0;
+    border-radius: 20px;
+    padding: 45px 35px;
+    text-align: center;
+    
+}
+.search{
+    width: 100%;
+    display: contents;
+    align-items: center;
+    justify-content: space-between;
+}
+.search input{
+    border: 0;
+    outline: 0;
+    background: white;
+    color: #555;
+    padding: 1px 2px;
+    height: 40px;
+    border-radius:30px ;
+    flex: 1;
+    margin-right: 50px;
+    font-size: 18px;
+}
+.search button{
+    border: 0;
+    outline: 0;
+    border-radius: 60px;
+    height: 40px;
+    width: 60px;
+    font-size: 100%;
+}
+.weather-icon{
+    width: 170px;
+    margin-top: 30px;
+}
+.weather h1{
+    font-size: 80px;
+    font-weight: 500;
+}
+.weather h2{
+    font-size: 45px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+.details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 50px;
+}
+.humid-icon{
+    height:50px;
+    width: 50px;}
+.wind-icon{
+    height:50px;
+    width: 50px;
+}
+.humidity , .windspeed{
+    font-size: 28px;
+    margin-top: -6px;
+}
+nav ul{
+    display: flex;
+    list-style-type: disc;
+    align-items: baseline;
+    justify-content: space-around;
+    padding-top: 10px;  
+}
+marquee span{
+    font: 100px;
+    color: aliceblue;
+    background-color: blue;
+}
+#about{
+    margin-top: 0px;
+}
+.btn{
+    background-color : yellow;
+}
+#about{
+    color: black;
+}
+.bg-img{
+    background-image: url(wheather_image.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+details {
+    color: azure;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+.opt{
+    font-size: 50px;
+}
+.connect{
+    color: black;
+    font-size: x-large;
+    font-family: 'Courier New', Courier, monospace;
+}
+.ABU {
+    font-size: larger;
+    color: black;
+    padding-top: 150px;
+}

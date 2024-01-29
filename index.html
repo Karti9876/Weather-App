@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="clouds-icon-vector-20780415.jpg" type="image/x-icon">
+</head>
+
+<body>
+<div class="bg-img">
+    <footer
+        style="color: rgb(11, 12, 11); font-size: 100px; text-align: center; font-family: Arial, Helvetica, sans-serif ;">
+        <b>Weather App</b>
+    </footer>
+    <marquee width="100%" behavior="scroll" direction="left" height="100px" scrollamount="15" >
+        <span>This is a official temperature showing website . For more information you can click on about section ..</span>
+        
+    </marquee>
+    <nav>
+        <ul style="font-size: x-large;">
+            
+                <li><a href="#about">About</a></li>
+                <li><a href="#con">Connect us</a></li>
+        
+           
+        </ul>
+    </nav>
+
+    <div class="topic">
+        <p>!!Get the accurate temperature of your location!!</p>
+    </div>
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="Enter your city name" spellcheck="false">
+            <button>Search</button>
+            <div class="weather">
+                <img class="weather-icon">
+                <h2 class="temp"></h2>
+                <h1 class="city"></h1>
+                <div class="details">
+                    <div class="col">
+                        <img src="humidity.png" class="humid-icon">
+                        <div>
+                            <p class="humidity"></p>
+                            <p>Humidity</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <img src="winds-weather-symbol.png" class="wind-icon">
+                        <p class="windspeed"></p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="ABU">
+        
+            <h2  id="about">About</h2>
+              weather forecasting is the application of science and technology to predict the conditions of the atmosphere for a given location and time. People have attempted to predict the weather informally for millennia and formally since the 19th century.
+
+            Weather forecasts are made by collecting quantitative data about the current state of the atmosphere, land, and ocean and using meteorology to project how the atmosphere will change at a given place.
+
+            Once calculated manually based mainly upon changes in barometric pressure, current weather conditions, and sky conditions or cloud cover, weather forecasting now relies on computer-based models that take many atmospheric factors into account.[1] Human input is still required to pick the best possible model to base the forecast upon, which involves pattern recognition skills, teleconnections, knowledge of model performance, and knowledge of model biases.     
+           
+
+    </div>
+    <br><br><br><br><br><br><br>
+    <footer>
+        <div class="connect">
+            <p id="con"><b>Connect with us on - </b></p><br>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" alt="" height="30px" width="30px"> <span>kartikgautam_11</span><br><br>
+            <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="" width="30px" height="30px"> <span>8769682290</span><br><br>
+           <img src="https://static.vecteezy.com/system/resources/previews/016/716/465/original/gmail-icon-free-png.png" alt="" width="30px" height="30px"> <span>gautamkartik747@gmail.com</span>
+        </div>
+    </footer>
+   
+
+
+
+   
+
+
+    
+    
+</div>
+    
+
+
+
+    <script>
+        const apikey = "0b6f17360337e4bda1432c523550c65f";
+        const apiurl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+        const searchbox = document.querySelector(".search input");
+        const searchbtn = document.querySelector(".search button");
+
+        const weatherIcon = document.querySelector(".weather-icon");
+
+        async function checkweather(city) {
+            const response = await fetch(apiurl + city + `&appid=${apikey}`);
+            var data = await response.json();
+            console.log(data);
+
+            document.querySelector(".city").innerHTML = data.name;
+            document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+            document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+            document.querySelector(".windspeed").innerHTML = data.wind.speed + "Km/h";
+
+        }
+        
+        function setWeatherImg(weather){
+            switch(weather){
+                case "Clear":
+                    weatherIcon.setAttribute("src","./assert/sunny.png");
+                    break;
+                case "Cloud" :
+                    weatherIcon.setAttribute("src","./assert/clouds-icon.jpg");
+                    break; 
+                case "rain" :
+                    weatherIcon.setAttribute("src","./assert/rain-cloud.jpg");
+                    break;
+                case "sun cloud" :
+                    weatherIcon.setAttribute("src","./assert/sun-with-cloud.jpeg");
+                    break; 
+
+            }
+
+        }
+    
+
+        searchbtn.addEventListener("click", () => {
+            if(searchbox.value == ""){
+                alert("Please enter city name");
+            }
+            else if(searchbox.value == ("A" <= searchbox <= "Z" && 0 <= searchbox <= 9 )){
+                alert("Alphanumeric is not allowed");
+            }
+            checkweather(searchbox.value);
+
+        })
+
+        searchbtn.addEventListener("mouseover" , () => {
+            searchbtn.setAttribute("class" , "btn");
+        })
+        searchbtn.addEventListener("mouseout" , () => {
+            searchbtn.setAttribute("class" , " ");
+        })
+        
+    </script>
+
+</body>
+
+</html>
